@@ -1,10 +1,17 @@
-//import logo from './logo.svg';
+import Dashboard from './layouts/Dashboard';
+import 'semantic-ui-css/semantic.min.css'
+import { Container } from 'semantic-ui-react';
+import Navi from './layouts/Navi';
 import './App.css';
 
 function App() {
+  
   return (
-    <div>
-      <h2>Hello React</h2>
+    <div className="App">
+      <Navi/>
+      <Container className="main">
+         <Dashboard/>
+      </Container>    
     </div>
   );
 }
