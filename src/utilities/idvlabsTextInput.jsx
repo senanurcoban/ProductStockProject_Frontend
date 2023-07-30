@@ -1,8 +1,8 @@
-import React from 'react';
-import { useField } from 'formik';
-import { FormField,Label } from 'semantic-ui-react';
+import React from 'react'
+import { useField } from 'formik'
+import { FormField,Label } from 'semantic-ui-react'
 
-export default function idvlabsTextInput({...props}) {
+export default function IdvlabsTextInput({...props}) {
     //console.log(props)
     //reflect api
     const [field,meta] = useField(props)

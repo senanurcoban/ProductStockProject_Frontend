@@ -1,14 +1,16 @@
 import React, { useState,useEffect  } from 'react'
+import { Link } from 'react-router-dom'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import ProductService from "../services/productService";
 
 export default function ProductList() {
 
 const[products,setProducts]=useState([])      // Bu yapı kullanılarak;sistemde ne kadar ürün sayısı varsa o kadar tablo hücre sayısı elde edilecek.
-//useEffect(() => {
- // let productService = new ProductService();
-  //productService.getProducts().then((result) => setProducts(result.data.data));
-//}, []);
-
+useEffect(() => {
+  let productService = new ProductService();
+  productService.getProducts().then((result) => setProducts(result.data.data));
+}, []);
+ 
 
   return (
     <div>
@@ -26,7 +28,7 @@ const[products,setProducts]=useState([])      // Bu yapı kullanılarak;sistemde
       {
         products.map((product) => (
       <Table.Row key={product.id}> 
-        <Table.Cell>{product.name}</Table.Cell>
+        <Table.Cell><Link to={'/products/${product.name}'}>{product.name}</Link></Table.Cell>
         <Table.Cell>{product.unitPrice}</Table.Cell>
         <Table.Cell>{product.unitsInStock}</Table.Cell>
         <Table.Cell>{product.category.name}</Table.Cell>
